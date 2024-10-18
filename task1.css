@@ -1,0 +1,144 @@
+$accent-color: #355cc9;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 420px;
+  height: 340px;
+  perspective: 1500px;
+  transition: transform 0.8s ease-in-out;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: transform 0.8s ease;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.front {
+  background-color: #fff;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.front:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(53, 92, 201, 0.4);
+  border-radius: 10px;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #fff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.inner {
+  display: grid;
+  padding: 1.5em;
+  grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
+  justify-items: center;
+  transform: translateZ(80px) scale(0.94);
+}
+
+h2 {
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.rating {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  display: flex;
+}
+
+.rating i {
+  margin: 0 1px;
+}
+
+button.flip-button {
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button.flip-button:hover {
+  background-color: #fff;
+  color: $accent-color;
+}
+
+.back .inner {
+  grid-template-rows: repeat(7, auto);
+  color: $accent-color;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  color: $accent-color;
+}
+
+.description {
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: $accent-color;
+  text-align: justify;
+}
+
+.location, .price {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: $accent-color;
+}
+
+.price {
+  margin-top: 0.5em;
+}
